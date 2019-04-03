@@ -20,9 +20,12 @@ void WelcomeState::setBackground()
 	// image
 }
 
-void switchToStart(GameEngine* pEngine) {
+void switchToStart(GameEngine* pEngine)
+{
 	std::cout << "out";
-	pEngine->setState(new StartState(pEngine));
+	State* pState = new StartState(pEngine);
+	pEngine->setState(pState);
+	pState->initObjects();
 };
 
 void switchToRanking(GameEngine* pEngine)
