@@ -11,6 +11,7 @@ public:
 	~GameEngine();
 	void virtSetupBackgroundBuffer();
 	int virtInitialiseObjects();
+	void setState(State* pState);
 private:
 	State* m_pState;
 };

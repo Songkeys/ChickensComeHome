@@ -3,19 +3,23 @@
 
 
 
-State::State()
+State::State(GameEngine* pEngine)
+	:m_pEngine(pEngine)
 {
 }
 
+State::State()
+{
+}
 
 State::~State()
 {
 }
 
-void State::setBackground(GameEngine* pEngine)
+void State::setBackground()
 {
 }
 
-void State::initObjects(GameEngine* pEngine)
+void State::initObjects()
 {
 }

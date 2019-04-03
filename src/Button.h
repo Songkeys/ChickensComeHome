@@ -1,10 +1,11 @@
 #pragma once
 #include "DisplayableObject.h"
+class GameEngine;
 class Button :
 	public DisplayableObject
 {
 public:
-	Button(int x, int y, BaseEngine* pEngine, const char* pText, void(*onClick)());
+	Button(int x, int y, GameEngine* pEngine, const char* pText, void(*onClick)(GameEngine*));
 	~Button();
 	void virtDraw();
 	//void virtMouseMoved(int iX, int iY);
@@ -12,6 +13,7 @@ public:
 	void virtMouseUp(int iButton, int iX, int iY);
 private:
 	const char* m_pText;
-	void (*m_pOnClick)();
+	GameEngine* m_pEngine;
+	void (*m_pOnClick)(GameEngine*);
 };
 
