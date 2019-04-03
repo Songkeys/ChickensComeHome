@@ -8,7 +8,8 @@ MazeMap::MazeMap(int iTileHeight, int iTileWidth, int iCountX, int iCountY)
 }
 
 MazeMap::MazeMap()
-	: TileManager(60, 60, 10, 10)
+	//: TileManager(60, 60, 10, 10)
+	: TileManager(20, 20, 10, 10)
 {
 }
 
@@ -20,7 +21,7 @@ void MazeMap::virtDrawTileAt(
 	BaseEngine* pEngine,
 	DrawingSurface* pSurface,
 	int iMapX, int iMapY,
-	int iStartPositionScreenX, int iStartPositionScreenY)
+	int iStartPositionScreenX, int iStartPositionScreenY) const
 {
 	switch (getMapValue(iMapX, iMapY))
 	{
@@ -30,7 +31,7 @@ void MazeMap::virtDrawTileAt(
 			iStartPositionScreenY,
 			iStartPositionScreenX + getTileWidth() - 1,
 			iStartPositionScreenY + getTileHeight() - 1,
-			pEngine->getColour(getMapValue(iMapX, iMapY)));
+			0);
 		break;
 	case 1: // wall
 		pSurface->drawRectangle(
@@ -38,7 +39,7 @@ void MazeMap::virtDrawTileAt(
 			iStartPositionScreenY,
 			iStartPositionScreenX + getTileWidth() - 1,
 			iStartPositionScreenY + getTileHeight() - 1,
-			pEngine->getColour(getMapValue(iMapX, iMapY)));
+			0xff0000);
 		break;
 	case 2: // thron
 		pSurface->drawRectangle(
@@ -46,7 +47,23 @@ void MazeMap::virtDrawTileAt(
 			iStartPositionScreenY,
 			iStartPositionScreenX + getTileWidth() - 1,
 			iStartPositionScreenY + getTileHeight() - 1,
-			pEngine->getColour(getMapValue(iMapX, iMapY)));
+			0x00ffff);
+		break;
+	case 3: // door
+		pSurface->drawRectangle(
+			iStartPositionScreenX,
+			iStartPositionScreenY,
+			iStartPositionScreenX + getTileWidth() - 1,
+			iStartPositionScreenY + getTileHeight() - 1,
+			0xffffff);
+		break;
+	default: // floor
+		pSurface->drawRectangle(
+			iStartPositionScreenX,
+			iStartPositionScreenY,
+			iStartPositionScreenX + getTileWidth() - 1,
+			iStartPositionScreenY + getTileHeight() - 1,
+			0);
 		break;
 	}
 }

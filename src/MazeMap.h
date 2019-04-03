@@ -12,6 +12,6 @@ public:
 		BaseEngine* pEngine,
 		DrawingSurface* pSurface,
 		int iMapX, int iMapY,
-		int iStartPositionScreenX, int iStartPositionScreenY);
+		int iStartPositionScreenX, int iStartPositionScreenY) const override;
 };
 
