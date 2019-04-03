@@ -16,6 +16,7 @@
 // MY HEADER FILE:
 #include "JasonsDemoA.h"
 
+#include "GameEngine.h"
 
 const int BaseScreenWidth = 800;
 const int BaseScreenHeight = 600;
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 
 		// Needs just one of the following lines - choose which object to create.
 		// Note these are from simplest to most complex demo.
-		JasonsDemoA oMain; // Jason's version of MyDemoA, MyObjectA and MyTileManagerA
+		//JasonsDemoA oMain; // Jason's version of MyDemoA, MyObjectA and MyTileManagerA
 		//SimpleDemo oMain;
 		//ImageObjectDemo oMain; // Shows drawing images to the foreground and background
 		//BouncingBallMain oMain; // A ball bouncing around with images and shapes drawn
@@ -39,6 +40,8 @@ int main(int argc, char *argv[])
 		//DraggingDemo oMain; // Includes dragable images and image objects
 		//ZoomingDemo oMain;	// Shows the use of a filter to shift and rescale the display - this is complex and you can ignore it!
 		//PlayingCardsDemo oMain; // The most advanced demo - you may want to ignore this one totally!
+
+		GameEngine oMain;
 
 		char buf[1024];
 		sprintf(buf, "My Demonstration Program : Size %d x %d", BaseScreenWidth, BaseScreenHeight);

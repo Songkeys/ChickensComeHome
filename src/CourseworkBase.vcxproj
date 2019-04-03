@@ -105,6 +105,7 @@
     <ClInclude Include="DrawingFilters.h" />
     <ClInclude Include="DrawingSurface.h" />
     <ClInclude Include="FilterPoints.h" />
+    <ClInclude Include="GameEngine.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="BaseEngine.h" />
     <ClInclude Include="DisplayableObject.h" />
@@ -121,6 +122,7 @@
     <ClInclude Include="PlayingCardsDemo.h" />
     <ClInclude Include="RawImage.h" />
     <ClInclude Include="BouncingObject.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
     <ClInclude Include="BouncingBall.h" />
@@ -131,11 +133,13 @@
     <ClInclude Include="SimpleDemo.h" />
     <ClInclude Include="DragableToken.h" />
     <ClInclude Include="TokenTray.h" />
+    <ClInclude Include="WelcomeState.h" />
     <ClInclude Include="ZoomingDemo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DraggingDemo.cpp" />
     <ClCompile Include="DrawingSurface.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="ImageObjectDemo.cpp" />
     <ClCompile Include="mainfunction.cpp" />
     <ClCompile Include="BaseEngine.cpp" />
@@ -148,6 +152,7 @@
     <ClCompile Include="PlayingCardsDemo.cpp" />
     <ClCompile Include="RawImage.cpp" />
     <ClCompile Include="SimpleDemo.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />
     <ClCompile Include="BouncingBallMain.cpp" />
@@ -160,6 +165,7 @@
     <ClCompile Include="MazeDemoTileManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="WelcomeState.cpp" />
     <ClCompile Include="ZoomingDemo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

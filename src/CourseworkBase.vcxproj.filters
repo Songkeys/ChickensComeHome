@@ -49,6 +49,12 @@
     <Filter Include="Source Files\4 JasonsDemo">
       <UniqueIdentifier>{c858a0b2-1271-4cff-9891-a658ad7af47c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\State">
+      <UniqueIdentifier>{30406a39-a07d-41b7-9ab8-c298c76266fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{34fc1810-353a-476d-b39b-2ec0314b6848}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -171,6 +177,15 @@
     <ClInclude Include="JasonsObjectA.h">
       <Filter>Header Files\4 JasonsDemo</Filter>
     </ClInclude>
+    <ClInclude Include="GameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomeState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -235,6 +250,15 @@
     </ClCompile>
     <ClCompile Include="JasonsTileManager.cpp">
       <Filter>Source Files\4 JasonsDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomeState.cpp">
+      <Filter>Source Files\State</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
