@@ -96,6 +96,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="CardContainer.h" />
     <ClInclude Include="CardOrTile.h" />
+    <ClInclude Include="Chicken.h" />
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="DisplayableObjectContainer.h" />
     <ClInclude Include="DragableImageObject.h" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Chicken.cpp" />
     <ClCompile Include="DraggingDemo.cpp" />
     <ClCompile Include="DrawingSurface.cpp" />
     <ClCompile Include="GameEngine.cpp" />
