@@ -15,3 +15,7 @@ State::~State()
 void State::setBackground(GameEngine* pEngine)
 {
 }
+
+void State::initObjects(GameEngine* pEngine)
+{
+}

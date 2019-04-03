@@ -93,6 +93,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BouncingImageObject.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CardContainer.h" />
     <ClInclude Include="CardOrTile.h" />
     <ClInclude Include="CollisionDetection.h" />
@@ -137,6 +138,7 @@
     <ClInclude Include="ZoomingDemo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="DraggingDemo.cpp" />
     <ClCompile Include="DrawingSurface.cpp" />
     <ClCompile Include="GameEngine.cpp" />

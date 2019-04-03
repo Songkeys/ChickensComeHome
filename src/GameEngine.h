@@ -10,6 +10,7 @@ public:
 	GameEngine();
 	~GameEngine();
 	void virtSetupBackgroundBuffer();
+	int virtInitialiseObjects();
 private:
 	State* m_pState;
 };

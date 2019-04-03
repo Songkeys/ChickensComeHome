@@ -49,11 +49,17 @@
     <Filter Include="Source Files\4 JasonsDemo">
       <UniqueIdentifier>{c858a0b2-1271-4cff-9891-a658ad7af47c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\State">
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{436296ee-e2f6-42b8-89d0-97c9962b8510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States">
       <UniqueIdentifier>{30406a39-a07d-41b7-9ab8-c298c76266fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\State">
+    <Filter Include="Source Files\States">
       <UniqueIdentifier>{34fc1810-353a-476d-b39b-2ec0314b6848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{6292369e-5e25-4c02-9141-30b7931735c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -181,10 +187,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Header Files\State</Filter>
+      <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="WelcomeState.h">
-      <Filter>Header Files\State</Filter>
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -255,10 +264,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>Source Files\State</Filter>
+      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="WelcomeState.cpp">
-      <Filter>Source Files\State</Filter>
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

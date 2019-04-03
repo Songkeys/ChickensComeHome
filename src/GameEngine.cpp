@@ -19,3 +19,9 @@ void GameEngine::virtSetupBackgroundBuffer()
 {
 	m_pState->setBackground(this);
 }
+
+int GameEngine::virtInitialiseObjects()
+{
+	m_pState->initObjects(this);
+	return 0;
+}
