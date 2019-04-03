@@ -1,6 +1,6 @@
 #include "header.h"
 #include "WelcomeState.h"
-
+#include "StartState.h"
 #include "GameEngine.h"
 #include "Button.h"
 
@@ -18,12 +18,11 @@ void WelcomeState::setBackground()
 {
 	m_pEngine->fillBackground(0x0000ff);
 	// image
-	
 }
 
 void switchToStart(GameEngine* pEngine) {
 	std::cout << "out";
-	pEngine->setState(new WelcomeState(pEngine));
+	pEngine->setState(new StartState(pEngine));
 };
 
 void switchToRanking(GameEngine* pEngine)

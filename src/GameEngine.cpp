@@ -29,4 +29,5 @@ int GameEngine::virtInitialiseObjects()
 void GameEngine::setState(State* pState)
 {
 	m_pState = pState;
+	virtSetupBackgroundBuffer();
 }

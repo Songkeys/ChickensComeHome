@@ -123,6 +123,7 @@
     <ClInclude Include="PlayingCardsDemo.h" />
     <ClInclude Include="RawImage.h" />
     <ClInclude Include="BouncingObject.h" />
+    <ClInclude Include="StartState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="templates.h" />
     <ClInclude Include="TileManager.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="PlayingCardsDemo.cpp" />
     <ClCompile Include="RawImage.cpp" />
     <ClCompile Include="SimpleDemo.cpp" />
+    <ClCompile Include="StartState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="TileManager.cpp" />
     <ClCompile Include="BouncingBall.cpp" />

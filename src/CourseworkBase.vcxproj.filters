@@ -195,6 +195,9 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="StartState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -271,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="StartState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
