@@ -1,6 +1,7 @@
 #include "header.h"
 #include "StartState.h"
 #include "GameEngine.h"
+#include "Chicken.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -31,10 +32,12 @@ void StartState::setBackground()
 	{
 		lines.push_back(line);
 		int x = 0;
-		for (char& c : line) {
+		for (char& c : line)
+		{
 			x++;
 		}
-		if (x > maxX) {
+		if (x > maxX)
+		{
 			maxX = x;
 		}
 		maxY++;
@@ -59,7 +62,8 @@ void StartState::setBackground()
 	for (std::string line : lines)
 	{
 		x = 0;
-		for (char& c : line) {
+		for (char& c : line)
+		{
 			int value = c - '0';
 			m_pEngine->getMazeMap()->setMapValue(x, y, value);
 			x++;
@@ -67,19 +71,41 @@ void StartState::setBackground()
 		y++;
 	}
 	m_pEngine->getMazeMap()->drawAllTiles(m_pEngine, m_pEngine->getBackgroundSurface());
-	
+
 	m_pEngine->redrawDisplay();
 }
 
 void StartState::initObjects()
 {
+	
 	m_pEngine->notifyObjectsAboutMouse(true);
 
 	m_pEngine->drawableObjectsChanged();
 
 	m_pEngine->destroyOldObjects(true);
 
-	m_pEngine->createObjectArray(0);
-
+	
+	// set chickens
+	int chickenId = 0;
+	int x = m_pEngine->getMazeMap()->getMapWidth();
+	int y = m_pEngine->getMazeMap()->getMapHeight();
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			bool isChicken = m_pEngine->getMazeMap()->getMapValue(i, j) == 9;
+			if (isChicken)
+			{
+				int chickenX = m_pEngine->getMazeMap()->getScreenXForMapX(i);
+				int chickenY = m_pEngine->getMazeMap()->getScreenYForMapY(j);
+				int tileLength = m_pEngine->getMazeMap()->getTileWidth();
+				Chicken* chicken = new Chicken(chickenX, chickenY, m_pEngine, tileLength, tileLength);
+				m_pEngine->storeObjectInArray(chickenId, chicken);
+				chickenId++;
+			}
+		}
+	}
+	
 	m_pEngine->setAllObjectsVisible(true);
+	
 }

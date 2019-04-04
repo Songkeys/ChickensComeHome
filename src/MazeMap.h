@@ -13,5 +13,15 @@ public:
 		DrawingSurface* pSurface,
 		int iMapX, int iMapY,
 		int iStartPositionScreenX, int iStartPositionScreenY) const override;
+
+	int getScreenXForMapX(int iMapX) const
+	{
+		return iMapX * getTileWidth() + m_iBaseScreenX;
+	}
+
+	int getScreenYForMapY(int iMapY) const
+	{
+		return iMapY * getTileHeight() + m_iBaseScreenY;
+	}
 };
 

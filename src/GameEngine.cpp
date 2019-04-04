@@ -22,6 +22,7 @@ void GameEngine::virtSetupBackgroundBuffer()
 
 int GameEngine::virtInitialiseObjects()
 {
+	createObjectArray(100); // big enough to use
 	m_pState->initObjects();
 	return 0;
 }
