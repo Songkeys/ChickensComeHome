@@ -104,6 +104,17 @@ void Chicken::virtKeyDown(int iKeyCode)
 		{
 			pMazeMap->setAndRedrawMapValueAt(iNextMapX, iNextMapY, 9, getEngine(), getEngine()->getBackgroundSurface());
 			virtRedrawRectangle();
+			// open home
+			for (int i = 0; i < pMazeMap->getMapWidth(); i++)
+			{
+				for (int j = 0; j < pMazeMap->getMapHeight(); j++)
+				{
+					if (pMazeMap->getMapValue(j, i) == 5) // found closed home
+					{
+						pMazeMap->setAndRedrawMapValueAt(j, i, 3, getEngine(), getEngine()->getBackgroundSurface());
+					}
+				}
+			}
 		}
 		else // normal move
 		{
@@ -139,7 +150,7 @@ bool Chicken::isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMap
 	
 
 	int currentValue = pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY);
-	if (currentValue == 1) // wall
+	if (currentValue == 1 || currentValue == 5) // wall or closed home
 	{
 		return true;
 	}

@@ -75,6 +75,18 @@ void MazeMap::virtDrawTileAt(
 			m_iTileHeight);
 	}
 		break;
+	case 5: // home_closed
+	{
+		SimpleImage image = ImageManager::loadImage("resources/images/home_closed.png", true).resizeTo(m_iTileWidth, m_iTileWidth);
+		image.renderImageWithMask(pSurface,
+			0,
+			0,
+			iStartPositionScreenX,
+			iStartPositionScreenY,
+			m_iTileWidth,
+			m_iTileHeight);
+	}
+		break;
 	case 9: // chicken (empty ground)
 	{
 		// remove or transparent?
