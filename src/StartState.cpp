@@ -99,7 +99,7 @@ void StartState::initObjects()
 				int chickenX = m_pEngine->getMazeMap()->getScreenXForMapX(i);
 				int chickenY = m_pEngine->getMazeMap()->getScreenYForMapY(j);
 				int tileLength = m_pEngine->getMazeMap()->getTileWidth();
-				Chicken* chicken = new Chicken(chickenX, chickenY, m_pEngine, tileLength, tileLength);
+				Chicken* chicken = new Chicken(chickenId, chickenX, chickenY, m_pEngine, tileLength, tileLength);
 				m_pEngine->storeObjectInArray(chickenId, chicken);
 				chickenId++;
 			}

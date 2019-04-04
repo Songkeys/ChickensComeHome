@@ -75,6 +75,19 @@ void MazeMap::virtDrawTileAt(
 			m_iTileHeight);
 	}
 		break;
+	case 9: // chicken (empty ground)
+	{
+		// remove or transparent?
+		SimpleImage image = ImageManager::loadImage("resources/images/grass_bg.jpg", true);
+		image.renderImage(pSurface,
+			0,
+			0,
+			iStartPositionScreenX,
+			iStartPositionScreenY,
+			m_iTileWidth,
+			m_iTileHeight);
+	}
+		break;
 	default: // empty ground
 		break;
 	}

@@ -2,8 +2,8 @@
 #include "Chicken.h"
 #include "GameEngine.h"
 
-Chicken::Chicken(int x, int y, GameEngine* pEngine, int w, int h)
-	: DisplayableObject(x, y, (BaseEngine*) pEngine, w, h, true)
+Chicken::Chicken(int index, int x, int y, GameEngine* pEngine, int w, int h)
+	: DisplayableObject(x, y, (BaseEngine*) pEngine, w, h, true), m_iIndex(index)
 {
 	m_iDrawWidth = w;
 	m_iDrawHeight = h;
@@ -29,6 +29,7 @@ void Chicken::virtDraw()
 			m_iCurrentScreenY + m_iStartDrawPosY,
 			m_iDrawWidth,
 			m_iDrawHeight);
+		//getEngine()->drawForegroundString(m_iCurrentScreenX, m_iCurrentScreenY, std::to_string(m_iIndex).c_str(), 0, 0);
 	}
 }
 
@@ -60,29 +61,111 @@ void Chicken::virtKeyDown(int iKeyCode)
 	int iNextMapX = pMazeMap->getMapXForScreenX(iNextScreenX);
 	int iNextMapY = pMazeMap->getMapYForScreenY(iNextScreenY);
 	int iNextValue = pMazeMap->getMapValue(iNextMapX, iNextMapY);
-	std::cout << iNextValue;
 	switch (iNextValue)
 	{
 	case 0: // empty ground
+	case 9: // chicken
+	case 4: // egg
+	case 3: // home
+	case 2: // thorn
 	{
-		// reset previous map value
+		if (iNextValue >= 9 && isGoingToTouchWall(iKeyCode, iNextMapX, iNextMapY)) // chicken with wall
+		{
+			break; // stop
+		}
+
+		// keep moving
+
+		// before move: reset current position
 		int iCurrentMapX = pMazeMap->getMapXForScreenX(m_iCurrentScreenX);
 		int iCurrentMapY = pMazeMap->getMapYForScreenY(m_iCurrentScreenY);
-		pMazeMap->setMapValue(iCurrentMapX, iCurrentMapY, 0);
+		if (pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY) - 9 <= 0)
+		{
+			pMazeMap->setMapValue(iCurrentMapX, iCurrentMapY, 0);
+		}
+		else
+		{
+			pMazeMap->setMapValue(iCurrentMapX, iCurrentMapY, pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY) - 9);
+		}
+		
 		// move
 		m_iCurrentScreenX = iNextScreenX;
 		m_iCurrentScreenY = iNextScreenY;
-		// update next map value
-		pMazeMap->setMapValue(iNextMapX, iNextMapY, 9);
+		// after move: handle move result
+		if (iNextValue == 2) // die
+		{
+			getEngine()->removeDisplayableObject(this);
+		}
+		else if (iNextValue == 3) // win
+		{
+			getEngine()->removeDisplayableObject(this);
+		}
+		else if (iNextValue == 4) // get egg
+		{
+			pMazeMap->setAndRedrawMapValueAt(iNextMapX, iNextMapY, 9, getEngine(), getEngine()->getBackgroundSurface());
+			virtRedrawRectangle();
+		}
+		else // normal move
+		{
+			// update next map value
+			pMazeMap->setMapValue(iNextMapX, iNextMapY, pMazeMap->getMapValue(iNextMapX, iNextMapY) + 9);
+		}
 	}
 		break;
-	case 9: // chicken
-	{
-		// check next next position until wall
-
-	}
 	default:
 		break;
 	}
 	redrawDisplay();
+}
+
+bool Chicken::isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMapY)
+{
+	MazeMap* pMazeMap = (static_cast<GameEngine*>(getEngine()))->getMazeMap();
+	
+	// print map
+	/*
+	for (int i = 0; i < pMazeMap->getMapWidth(); i++)
+	{
+		for (int j = 0; j < pMazeMap->getMapHeight(); j++)
+		{
+			std::cout << pMazeMap->getMapValue(j,i);
+		}
+		std::cout << "\n";
+	}
+	std::cout << "\n";
+	*/
+	
+	
+	
+
+	int currentValue = pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY);
+	if (currentValue == 1) // wall
+	{
+		return true;
+	}
+	else if (currentValue >= 9) // chicken: still need checking
+	{
+		switch (iKeyCode)
+		{
+		case SDLK_UP:
+			iCurrentMapY -= 1;
+			break;
+		case SDLK_DOWN:
+			iCurrentMapY += 1;
+			break;
+		case SDLK_LEFT:
+			iCurrentMapX -= 1;
+			break;
+		case SDLK_RIGHT:
+			iCurrentMapX += 1;
+			break;
+		default:
+			break;
+		}
+		return isGoingToTouchWall(iKeyCode, iCurrentMapX, iCurrentMapY);
+	}
+	else
+	{
+		return false;
+	}
 }
