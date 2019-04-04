@@ -9,7 +9,7 @@ Chicken::Chicken(int index, int x, int y, GameEngine* pEngine, int w, int h)
 	m_iDrawHeight = h;
 	m_iStartDrawPosX = 0;
 	m_iStartDrawPosY = 0;
-	image = pEngine->loadImage("resources/images/chicken.png", false).resizeTo(w, h);
+	image = pEngine->loadImage("resources/images/chicken_0.png", true).resizeTo(w, h);
 }
 
 
@@ -77,8 +77,8 @@ void Chicken::virtKeyDown(int iKeyCode)
 		// keep moving
 
 		// before move: reset current position
-		int iCurrentMapX = pMazeMap->getMapXForScreenX(m_iCurrentScreenX);
-		int iCurrentMapY = pMazeMap->getMapYForScreenY(m_iCurrentScreenY);
+		int iCurrentMapX = pMazeMap->getMapXForScreenX(m_iCurrentScreenX + 10);
+		int iCurrentMapY = pMazeMap->getMapYForScreenY(m_iCurrentScreenY + 10);
 		if (pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY) - 9 <= 0)
 		{
 			pMazeMap->setMapValue(iCurrentMapX, iCurrentMapY, 0);
@@ -167,5 +167,15 @@ bool Chicken::isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMap
 	else
 	{
 		return false;
+	}
+}
+
+void Chicken::virtDoUpdate(int iCurrentTime)
+{
+	if (iCurrentTime / 10 % 15 == 0)
+	{
+		int randomIndex = rand() % 3;
+		image = getEngine()->loadImage("resources/images/chicken_" + std::to_string(randomIndex) + ".png", true).resizeTo(m_iDrawWidth, m_iDrawHeight);
+		redrawDisplay();
 	}
 }

@@ -10,6 +10,7 @@ public:
 	~Chicken();
 	virtual void virtDraw() override;
 	virtual void virtKeyDown(int iKeyCode) override;
+	virtual void virtDoUpdate(int iCurrentTime) override;
 private:
 	bool isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMapY);
 	SimpleImage image;
