@@ -34,21 +34,53 @@ void Chicken::virtDraw()
 
 void Chicken::virtKeyDown(int iKeyCode)
 {
+	int iNextScreenX = m_iCurrentScreenX;
+	int iNextScreenY = m_iCurrentScreenY;
+
 	// move the chicken
 	switch (iKeyCode)
 	{
 	case SDLK_UP:
-		m_iCurrentScreenY -= m_iDrawHeight;
+		iNextScreenY -= m_iDrawHeight;
 		break;
 	case SDLK_DOWN:
-		m_iCurrentScreenY += m_iDrawHeight;
+		iNextScreenY += m_iDrawHeight;
 		break;
 	case SDLK_LEFT:
-		m_iCurrentScreenX -= m_iDrawHeight;
+		iNextScreenX -= m_iDrawWidth;
 		break;
 	case SDLK_RIGHT:
-		m_iCurrentScreenX += m_iDrawHeight;
+		iNextScreenX += m_iDrawWidth;
 		break;
+	default:
+		break;
+	}
+
+	MazeMap* pMazeMap = (static_cast<GameEngine*>(getEngine()))->getMazeMap();
+	int iNextMapX = pMazeMap->getMapXForScreenX(iNextScreenX);
+	int iNextMapY = pMazeMap->getMapYForScreenY(iNextScreenY);
+	int iNextValue = pMazeMap->getMapValue(iNextMapX, iNextMapY);
+	std::cout << iNextValue;
+	switch (iNextValue)
+	{
+	case 0: // empty ground
+	{
+		// reset previous map value
+		int iCurrentMapX = pMazeMap->getMapXForScreenX(m_iCurrentScreenX);
+		int iCurrentMapY = pMazeMap->getMapYForScreenY(m_iCurrentScreenY);
+		pMazeMap->setMapValue(iCurrentMapX, iCurrentMapY, 0);
+		// move
+		m_iCurrentScreenX = iNextScreenX;
+		m_iCurrentScreenY = iNextScreenY;
+		// update next map value
+		pMazeMap->setMapValue(iNextMapX, iNextMapY, 9);
+	}
+		break;
+	case 9: // chicken
+	{
+		// check next next position until wall
+
+	}
 	default:
 		break;
 	}
