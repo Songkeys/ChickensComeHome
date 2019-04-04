@@ -36,6 +36,7 @@ void switchToRanking(GameEngine* pEngine)
 void WelcomeState::initObjects()
 {
 	m_pEngine->notifyObjectsAboutMouse(true);
+	m_pEngine->notifyObjectsAboutKeys(true);
 
 	m_pEngine->drawableObjectsChanged();
 

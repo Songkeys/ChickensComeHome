@@ -25,13 +25,7 @@ void MazeMap::virtDrawTileAt(
 {
 	switch (getMapValue(iMapX, iMapY))
 	{
-	case 0: // floor
-		pSurface->drawRectangle(
-			iStartPositionScreenX,
-			iStartPositionScreenY,
-			iStartPositionScreenX + getTileWidth() - 1,
-			iStartPositionScreenY + getTileHeight() - 1,
-			0);
+	case 0: // empty ground
 		break;
 	case 1: // wall
 		pSurface->drawRectangle(
@@ -57,13 +51,9 @@ void MazeMap::virtDrawTileAt(
 			iStartPositionScreenY + getTileHeight() - 1,
 			0xffffff);
 		break;
-	default: // floor
-		pSurface->drawRectangle(
-			iStartPositionScreenX,
-			iStartPositionScreenY,
-			iStartPositionScreenX + getTileWidth() - 1,
-			iStartPositionScreenY + getTileHeight() - 1,
-			0);
+	case 4: // egg
+		break;
+	default: // empty ground
 		break;
 	}
 }
