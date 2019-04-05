@@ -10,7 +10,7 @@ public:
 	void virtDraw();
 	//void virtMouseMoved(int iX, int iY);
 	//void virtMouseDown(int iButton, int iX, int iY);
-	void virtMouseUp(int iButton, int iX, int iY);
+	virtual void virtMouseUp(int iButton, int iX, int iY) override;
 private:
 	const char* m_pText;
 	GameEngine* m_pEngine;

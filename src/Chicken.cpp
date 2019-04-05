@@ -1,6 +1,7 @@
 #include "header.h"
 #include "Chicken.h"
 #include "GameEngine.h"
+#include "StartState.h"
 
 Chicken::Chicken(int index, int x, int y, GameEngine* pEngine, int w, int h)
 	: DisplayableObject(x, y, (BaseEngine*) pEngine, w, h, true), m_iIndex(index)
@@ -54,11 +55,12 @@ void Chicken::virtKeyDown(int iKeyCode)
 		iNextScreenX += m_iDrawWidth;
 		break;
 	default:
-		return;
+		return; // if entering from level state, the iKeyCode will be passed here...
 		break;
 	}
 
-	MazeMap* pMazeMap = (static_cast<GameEngine*>(getEngine()))->getMazeMap();
+	GameEngine* pGameEngine = static_cast<GameEngine*>(getEngine());
+	MazeMap* pMazeMap = pGameEngine->getMazeMap();
 	int iNextMapX = pMazeMap->getMapXForScreenX(iNextScreenX);
 	int iNextMapY = pMazeMap->getMapYForScreenY(iNextScreenY);
 	int iNextValue = pMazeMap->getMapValue(iNextMapX, iNextMapY);
@@ -96,10 +98,12 @@ void Chicken::virtKeyDown(int iKeyCode)
 		if (iNextValue == 2) // die
 		{
 			getEngine()->removeDisplayableObject(this);
+			static_cast<StartState*>(pGameEngine->getState())->die();
 		}
-		else if (iNextValue == 3) // win
+		else if (iNextValue == 3) // get home
 		{
 			getEngine()->removeDisplayableObject(this);
+			static_cast<StartState*>(pGameEngine->getState())->getHome();
 		}
 		else if (iNextValue == 4) // get egg
 		{

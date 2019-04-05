@@ -11,8 +11,14 @@ public:
 	~StartState();
 	void setBackground();
 	void initObjects();
+	void die();
+	void getHome();
+	void drawStringOnTop() override;
 private:
 	GameEngine* m_pEngine;
 	std::string m_strLevelName = "1"; // filename without ".txt" extension, under resources/maps folder
+	int m_iRemainingChickenCount = 0;
+	int m_iDiedChickenCount = 0;
+	int m_iScore = 120;
 };
 

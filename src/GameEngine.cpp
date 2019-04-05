@@ -22,8 +22,6 @@ void GameEngine::virtSetupBackgroundBuffer()
 
 int GameEngine::virtInitialiseObjects()
 {
-	notifyObjectsAboutMouse(true);
-	notifyObjectsAboutKeys(true);
 	createObjectArray(1000); // big enough to use
 	m_pState->initObjects();
 	return 0;
