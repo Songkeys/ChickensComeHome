@@ -121,7 +121,7 @@ void Chicken::virtKeyDown(int iKeyCode)
 				{
 					if (pMazeMap->getMapValue(j, i) == 5) // found closed home
 					{
-						pMazeMap->setAndRedrawMapValueAt(j, i, 3, getEngine(), getEngine()->getBackgroundSurface());
+						pMazeMap->setAndRedrawMapValueAt(j, i, 3, getEngine(), getEngine()->getBackgroundSurface()); // bug: will not redraw in some maps where the egg is on the left side of the home!!! so weird...
 					}
 				}
 			}

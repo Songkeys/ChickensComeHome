@@ -131,6 +131,7 @@ void switchToWelcome(GameEngine* pEngine)
 {
 	State* pState = new WelcomeState(pEngine);
 	pEngine->setState(pState);
+	pState->setBackground();
 	pState->initObjects();
 }
 
@@ -152,7 +153,7 @@ void StartState::getHome()
 	m_pEngine->redrawDisplay();
 	if (m_iRemainingChickenCount == 0) // win
 	{
-		
+		switchToWelcome(m_pEngine);
 	}
 }
 
@@ -165,10 +166,16 @@ void switchToPause(GameEngine* pEngine)
 
 void StartState::onKeyDown(int iKeyCode)
 {
-	if (iKeyCode == SDLK_ESCAPE) // pauase
+	if (iKeyCode == SDLK_ESCAPE) // back to welcome
+	{
+		m_iRemainingChickenCount = 1;
+		die();
+		//switchToWelcome(m_pEngine); // bug: why the background is not redrew?
+		return;
+	}
+	else if (iKeyCode == SDLK_SPACE) // pause
 	{
 		State* pState = new PauseState(m_pEngine, this);
 		m_pEngine->setState(pState);
-		//pState->initObjects();
 	}
 }

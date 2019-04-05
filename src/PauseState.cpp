@@ -27,7 +27,7 @@ void PauseState::drawStringsUnderneath()
 
 void PauseState::onKeyDown(int iKeyCode)
 {
-	if (iKeyCode == SDLK_ESCAPE) // resume
+	if (iKeyCode == SDLK_SPACE) // resume
 	{
 		m_pEngine->unpause();
 		m_pEngine->setState((State*)m_pStartState);
