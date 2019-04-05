@@ -164,6 +164,11 @@ void switchToPause(GameEngine* pEngine)
 	pState->initObjects();
 }
 
+void StartState::loseScore(int iScore)
+{
+	m_iScore -= iScore;
+}
+
 void StartState::onKeyDown(int iKeyCode)
 {
 	if (iKeyCode == SDLK_ESCAPE) // back to welcome
@@ -177,5 +182,9 @@ void StartState::onKeyDown(int iKeyCode)
 	{
 		State* pState = new PauseState(m_pEngine, this);
 		m_pEngine->setState(pState);
+	}
+	else if (iKeyCode == SDLK_LEFT || iKeyCode == SDLK_RIGHT || iKeyCode == SDLK_UP || iKeyCode == SDLK_DOWN) // lose score for move
+	{
+		loseScore(1);
 	}
 }

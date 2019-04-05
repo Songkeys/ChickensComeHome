@@ -13,6 +13,7 @@ public:
 	void initObjects();
 	void die();
 	void getHome();
+	void loseScore(int iScore);
 	void drawStringOnTop() override;
 	void onKeyDown(int iKeyCode);
 private:
