@@ -34,9 +34,6 @@
 # Visual Studio
 .vs
 
-# Debug
-Debug
-
 # macOS
 .DS_Store
 
