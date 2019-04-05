@@ -107,6 +107,7 @@ void StartState::initObjects()
 				//m_pEngine->appendObjectToArray(chicken); // werid bug!!! an hour to figure out what happened!
 				m_pEngine->storeObjectInArray(chickenId, chicken);
 				chickenId++;
+				m_iRemainingChickenCount++;
 			}
 		}
 	}
@@ -117,9 +118,12 @@ void StartState::initObjects()
 
 void StartState::drawStringOnTop()
 {
-	//m_pEngine->drawForegroundString(10, 10, ("Chicken: " + std::to_string(m_iRemainingChickenCount)).c_str(), 0x44ff00, 0);
-	//m_pEngine->drawForegroundString(10, 10, ("Died: " + std::to_string(m_iDiedChickenCount)).c_str(), 0xff4400, 0);
-	//m_pEngine->drawForegroundString(10, 10, ("Score: " + std::to_string(m_iScore)).c_str(), 0xff9800, 0);
+	m_pEngine->drawForegroundString(10, 10, "Remaining: ", 0x44ff00, 0);
+	m_pEngine->drawForegroundString(10, 60, std::to_string(m_iRemainingChickenCount).c_str(), 0x44ff00, 0);
+	m_pEngine->drawForegroundString(10, 110, "Died: ", 0xff0000, 0);
+	m_pEngine->drawForegroundString(10, 160, std::to_string(m_iDiedChickenCount).c_str(), 0xff0000, 0);
+	m_pEngine->drawForegroundString(10, 210, "Score: ", 0x004444, 0);
+	m_pEngine->drawForegroundString(10, 260, std::to_string(m_iScore).c_str(), 0x004444, 0);
 }
 
 void switchToWelcome(GameEngine* pEngine)
