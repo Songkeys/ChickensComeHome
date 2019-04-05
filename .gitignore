@@ -39,3 +39,6 @@ Debug
 
 # macOS
 .DS_Store
+
+# cmake
+build
