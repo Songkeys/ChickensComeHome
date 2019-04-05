@@ -81,11 +81,7 @@ void StartState::setBackground()
 
 void StartState::initObjects()
 {
-	
-	m_pEngine->notifyObjectsAboutMouse(true);
-
 	m_pEngine->drawableObjectsChanged();
-
 	m_pEngine->destroyOldObjects(true);
 
 	
@@ -97,6 +93,8 @@ void StartState::initObjects()
 	{
 		for (int j = 0; j < y; j++)
 		{
+			std::cout << i << std::endl;
+			std::cout << j << std::endl;
 			bool isChicken = m_pEngine->getMazeMap()->getMapValue(i, j) == 9;
 			if (isChicken)
 			{
@@ -104,7 +102,9 @@ void StartState::initObjects()
 				int chickenY = m_pEngine->getMazeMap()->getScreenYForMapY(j);
 				int tileLength = m_pEngine->getMazeMap()->getTileWidth();
 				Chicken* chicken = new Chicken(chickenId, chickenX, chickenY, m_pEngine, tileLength, tileLength);
-				m_pEngine->storeObjectInArray(chickenId, chicken);
+
+				m_pEngine->appendObjectToArray(chicken);
+				//m_pEngine->storeObjectInArray(chickenId, chicken);
 				chickenId++;
 			}
 		}

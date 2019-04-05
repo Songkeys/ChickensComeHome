@@ -37,9 +37,6 @@ void switchToLevels(GameEngine* pEngine)
 
 void WelcomeState::initObjects()
 {
-	m_pEngine->notifyObjectsAboutMouse(true);
-	m_pEngine->notifyObjectsAboutKeys(true);
-
 	m_pEngine->drawableObjectsChanged();
 
 	m_pEngine->destroyOldObjects(true);

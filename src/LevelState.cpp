@@ -23,9 +23,6 @@ void LevelState::setBackground()
 
 void LevelState::initObjects()
 {
-	m_pEngine->notifyObjectsAboutMouse(true);
-	m_pEngine->notifyObjectsAboutKeys(true);
-
 	m_pEngine->drawableObjectsChanged();
 
 	m_pEngine->destroyOldObjects(true);

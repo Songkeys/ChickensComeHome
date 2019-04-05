@@ -54,6 +54,7 @@ void Chicken::virtKeyDown(int iKeyCode)
 		iNextScreenX += m_iDrawWidth;
 		break;
 	default:
+		return;
 		break;
 	}
 
@@ -145,9 +146,6 @@ bool Chicken::isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMap
 	}
 	std::cout << "\n";
 	*/
-	
-	
-	
 
 	int currentValue = pMazeMap->getMapValue(iCurrentMapX, iCurrentMapY);
 	if (currentValue == 1 || currentValue == 5) // wall or closed home
