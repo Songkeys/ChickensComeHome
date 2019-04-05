@@ -1,2 +1,35 @@
-﻿  WelcomeState.cpp
+﻿  Button.cpp
+  Chicken.cpp
+  DraggingDemo.cpp
+  DrawingSurface.cpp
+  GameEngine.cpp
+  ImageObjectDemo.cpp
+  LevelState.cpp
+  mainfunction.cpp
+  BaseEngine.cpp
+  DisplayableObject.cpp
+  FontManager.cpp
+  Images.cpp
+  JasonsDemoA.cpp
+  JasonsObjectA.cpp
+  JasonsTileManager.cpp
+  MazeMap.cpp
+  PauseState.cpp
+  PlayingCardsDemo.cpp
+  RawImage.cpp
+  SimpleDemo.cpp
+  Generating Code...
+  Compiling...
+  StartState.cpp
+  State.cpp
+  TileManager.cpp
+  BouncingBall.cpp
+  BouncingBallMain.cpp
+  WelcomeState.cpp
+  ZoomingDemo.cpp
+  Generating Code...
+  MazeDemoMain.cpp
+  MazeDemoObject.cpp
+  MazeDemoTileManager.cpp
+  Generating Code...
   CourseworkBase.vcxproj -> C:\Users\psyjw22\Documents\GitHub\ChickensComeHome\/Debug\CourseworkBase2018.exe

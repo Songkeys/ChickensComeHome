@@ -5,16 +5,16 @@
 #include "templates.h"
 
 // Needs one of the following #includes, to include the class definition
-#include "SimpleDemo.h"
-#include "BouncingBallMain.h"
-#include "MazeDemoMain.h"
-#include "DraggingDemo.h"
-#include "ZoomingDemo.h"
-#include "PlayingCardsDemo.h"
-#include "ImageObjectDemo.h"
+//#include "SimpleDemo.h"
+//#include "BouncingBallMain.h"
+//#include "MazeDemoMain.h"
+//#include "DraggingDemo.h"
+//#include "ZoomingDemo.h"
+//#include "PlayingCardsDemo.h"
+//#include "ImageObjectDemo.h"
 
 // MY HEADER FILE:
-#include "JasonsDemoA.h"
+//#include "JasonsDemoA.h"
 
 #include "GameEngine.h"
 
