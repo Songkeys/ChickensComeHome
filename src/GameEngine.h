@@ -12,6 +12,7 @@ public:
 	void virtSetupBackgroundBuffer();
 	int virtInitialiseObjects();
 	void virtKeyDown(int iKeyCode);
+	State* getState() { return m_pState; };
 	void setState(State* pState);
 	void virtDrawStringsOnTop() override;
 	MazeMap* getMazeMap() { return m_pMazeMap; }

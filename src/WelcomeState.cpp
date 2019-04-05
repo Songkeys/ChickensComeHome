@@ -23,7 +23,7 @@ void WelcomeState::setBackground()
 
 void switchToStart(GameEngine* pEngine)
 {
-	State* pState = new StartState(pEngine);
+	State* pState = new StartState(pEngine, "1");
 	pEngine->setState(pState);
 	pState->initObjects();
 };
@@ -37,6 +37,9 @@ void switchToLevels(GameEngine* pEngine)
 
 void WelcomeState::initObjects()
 {
+	m_pEngine->notifyObjectsAboutKeys(true);
+	m_pEngine->notifyObjectsAboutMouse(true);
+
 	m_pEngine->drawableObjectsChanged();
 
 	m_pEngine->destroyOldObjects(true);

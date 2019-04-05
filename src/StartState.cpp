@@ -2,6 +2,7 @@
 #include "StartState.h"
 #include "GameEngine.h"
 #include "Chicken.h"
+#include "WelcomeState.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -81,6 +82,8 @@ void StartState::setBackground()
 
 void StartState::initObjects()
 {
+	m_pEngine->notifyObjectsAboutKeys(true);
+	m_pEngine->notifyObjectsAboutMouse(true);
 	m_pEngine->drawableObjectsChanged();
 	m_pEngine->destroyOldObjects(true);
 
@@ -93,8 +96,6 @@ void StartState::initObjects()
 	{
 		for (int j = 0; j < y; j++)
 		{
-			std::cout << i << std::endl;
-			std::cout << j << std::endl;
 			bool isChicken = m_pEngine->getMazeMap()->getMapValue(i, j) == 9;
 			if (isChicken)
 			{
@@ -112,4 +113,40 @@ void StartState::initObjects()
 	
 	m_pEngine->setAllObjectsVisible(true);
 	
+}
+
+void StartState::drawStringOnTop()
+{
+	//m_pEngine->drawForegroundString(10, 10, ("Chicken: " + std::to_string(m_iRemainingChickenCount)).c_str(), 0x44ff00, 0);
+	//m_pEngine->drawForegroundString(10, 10, ("Died: " + std::to_string(m_iDiedChickenCount)).c_str(), 0xff4400, 0);
+	//m_pEngine->drawForegroundString(10, 10, ("Score: " + std::to_string(m_iScore)).c_str(), 0xff9800, 0);
+}
+
+void switchToWelcome(GameEngine* pEngine)
+{
+	State* pState = new WelcomeState(pEngine);
+	pEngine->setState(pState);
+	pState->initObjects();
+}
+
+void StartState::die()
+{
+	m_iRemainingChickenCount -= 1;
+	m_iDiedChickenCount += 1;
+	m_iScore -= 10;
+	m_pEngine->redrawDisplay();
+	if (m_iRemainingChickenCount == 0) // lose
+	{
+		switchToWelcome(m_pEngine);
+	}
+}
+
+void StartState::getHome()
+{
+	m_iRemainingChickenCount -= 1;
+	m_pEngine->redrawDisplay();
+	if (m_iRemainingChickenCount == 0) // win
+	{
+		
+	}
 }
