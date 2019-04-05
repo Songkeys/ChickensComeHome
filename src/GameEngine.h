@@ -11,6 +11,7 @@ public:
 	~GameEngine();
 	void virtSetupBackgroundBuffer();
 	int virtInitialiseObjects();
+	void virtKeyDown(int iKeyCode);
 	void setState(State* pState);
 	MazeMap* getMazeMap() { return m_pMazeMap; }
 	void setMazeMap(MazeMap* pMazeMap) { m_pMazeMap = pMazeMap; }

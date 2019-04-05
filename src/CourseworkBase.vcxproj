@@ -117,6 +117,7 @@
     <ClInclude Include="JasonsDemoA.h" />
     <ClInclude Include="JasonsObjectA.h" />
     <ClInclude Include="JasonsTileManager.h" />
+    <ClInclude Include="LevelState.h" />
     <ClInclude Include="MazeMap.h" />
     <ClInclude Include="SimpleImage.h" />
     <ClInclude Include="MovementPosition.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="DrawingSurface.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="ImageObjectDemo.cpp" />
+    <ClCompile Include="LevelState.cpp" />
     <ClCompile Include="mainfunction.cpp" />
     <ClCompile Include="BaseEngine.cpp" />
     <ClCompile Include="DisplayableObject.cpp" />

@@ -210,6 +210,9 @@
     <ClInclude Include="Chicken.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="LevelState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainfunction.cpp">
@@ -295,6 +298,9 @@
     </ClCompile>
     <ClCompile Include="Chicken.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

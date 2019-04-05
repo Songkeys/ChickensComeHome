@@ -10,6 +10,7 @@ public:
 	~State();
 	virtual void setBackground();
 	virtual void initObjects();
+	virtual void onKeyDown(int iKeyCode);
 private:
 	GameEngine* m_pEngine;
 };

@@ -27,8 +27,14 @@ int GameEngine::virtInitialiseObjects()
 	return 0;
 }
 
+void GameEngine::virtKeyDown(int iKeyCode)
+{
+	m_pState->onKeyDown(iKeyCode);
+}
+
 void GameEngine::setState(State* pState)
 {
 	m_pState = pState;
 	virtSetupBackgroundBuffer();
 }
+

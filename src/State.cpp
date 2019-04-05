@@ -23,3 +23,7 @@ void State::setBackground()
 void State::initObjects()
 {
 }
+
+void State::onKeyDown(int iKeyCode)
+{
+}
