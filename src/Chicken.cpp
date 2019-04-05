@@ -36,6 +36,11 @@ void Chicken::virtDraw()
 
 void Chicken::virtKeyDown(int iKeyCode)
 {
+	if (m_pEngine->isPaused())
+	{
+		return;
+	}
+
 	int iNextScreenX = m_iCurrentScreenX;
 	int iNextScreenY = m_iCurrentScreenY;
 

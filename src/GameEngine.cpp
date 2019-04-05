@@ -41,3 +41,8 @@ void GameEngine::virtDrawStringsOnTop()
 {
 	m_pState->drawStringOnTop();
 }
+
+void GameEngine::virtDrawStringsUnderneath()
+{
+	m_pState->drawStringsUnderneath();
+}

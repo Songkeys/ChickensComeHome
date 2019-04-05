@@ -3,6 +3,7 @@
 #include "GameEngine.h"
 #include "Chicken.h"
 #include "WelcomeState.h"
+#include "PauseState.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -166,8 +167,8 @@ void StartState::onKeyDown(int iKeyCode)
 {
 	if (iKeyCode == SDLK_ESCAPE) // pauase
 	{
-		//State* pState = new PauseState(pEngine, this);
-		//pEngine->setState(pState);
+		State* pState = new PauseState(m_pEngine, this);
+		m_pEngine->setState(pState);
 		//pState->initObjects();
 	}
 }

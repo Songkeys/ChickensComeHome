@@ -31,3 +31,7 @@ void State::onKeyDown(int iKeyCode)
 void State::drawStringOnTop()
 {
 }
+
+void State::drawStringsUnderneath()
+{
+}
