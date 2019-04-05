@@ -83,7 +83,7 @@ void StartState::setBackground()
 void StartState::initObjects()
 {
 	m_pEngine->notifyObjectsAboutKeys(true);
-	m_pEngine->notifyObjectsAboutMouse(true);
+	m_pEngine->notifyObjectsAboutMouse(false);
 	m_pEngine->drawableObjectsChanged();
 	m_pEngine->destroyOldObjects(true);
 
@@ -104,8 +104,8 @@ void StartState::initObjects()
 				int tileLength = m_pEngine->getMazeMap()->getTileWidth();
 				Chicken* chicken = new Chicken(chickenId, chickenX, chickenY, m_pEngine, tileLength, tileLength);
 
-				m_pEngine->appendObjectToArray(chicken);
-				//m_pEngine->storeObjectInArray(chickenId, chicken);
+				//m_pEngine->appendObjectToArray(chicken); // werid bug!!! an hour to figure out what happened!
+				m_pEngine->storeObjectInArray(chickenId, chicken);
 				chickenId++;
 			}
 		}

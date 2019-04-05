@@ -11,6 +11,7 @@ public:
 	virtual void virtDraw() override;
 	virtual void virtKeyDown(int iKeyCode) override;
 	virtual void virtDoUpdate(int iCurrentTime) override;
+	virtual void virtMouseUp(int iButton, int iX, int iY) override {};
 private:
 	bool isGoingToTouchWall(int iKeyCode, int iCurrentMapX, int iCurrentMapY);
 	SimpleImage image;

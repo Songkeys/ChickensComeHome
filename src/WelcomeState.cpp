@@ -23,7 +23,7 @@ void WelcomeState::setBackground()
 
 void switchToStart(GameEngine* pEngine)
 {
-	State* pState = new StartState(pEngine, "1");
+	State* pState = new StartState(pEngine);
 	pEngine->setState(pState);
 	pState->initObjects();
 };
