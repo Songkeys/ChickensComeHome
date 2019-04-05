@@ -11,6 +11,10 @@ StartState::StartState(GameEngine* pEngine)
 {
 }
 
+StartState::StartState(GameEngine* pEngine, std::string strLevelName)
+	: m_pEngine(pEngine), m_strLevelName(strLevelName)
+{
+}
 
 StartState::~StartState()
 {
@@ -27,7 +31,7 @@ void StartState::setBackground()
 	std::vector<std::string> lines;
 	int maxX = 0;
 	int maxY = 0;
-	std::ifstream infile("resources/maps/1.txt");
+	std::ifstream infile("resources/maps/" + m_strLevelName + ".txt");
 	for (std::string line; std::getline(infile, line); )
 	{
 		lines.push_back(line);

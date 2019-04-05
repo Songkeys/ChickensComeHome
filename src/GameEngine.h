@@ -13,6 +13,7 @@ public:
 	int virtInitialiseObjects();
 	void virtKeyDown(int iKeyCode);
 	void setState(State* pState);
+	void virtDrawStringsOnTop() override;
 	MazeMap* getMazeMap() { return m_pMazeMap; }
 	void setMazeMap(MazeMap* pMazeMap) { m_pMazeMap = pMazeMap; }
 private:

@@ -9,8 +9,9 @@ public:
 	void setBackground();
 	void initObjects();
 	void onKeyDown(int iKeyCode);
+	void drawStringOnTop();
 private:
 	GameEngine* m_pEngine;
-	std::string m_strLevelName;
+	std::string m_strLevelName = "";
 };
 

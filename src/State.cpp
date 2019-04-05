@@ -27,3 +27,7 @@ void State::initObjects()
 void State::onKeyDown(int iKeyCode)
 {
 }
+
+void State::drawStringOnTop()
+{
+}

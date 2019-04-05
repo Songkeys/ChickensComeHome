@@ -38,3 +38,7 @@ void GameEngine::setState(State* pState)
 	virtSetupBackgroundBuffer();
 }
 
+void GameEngine::virtDrawStringsOnTop()
+{
+	m_pState->drawStringOnTop();
+}

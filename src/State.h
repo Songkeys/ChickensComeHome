@@ -11,6 +11,7 @@ public:
 	virtual void setBackground();
 	virtual void initObjects();
 	virtual void onKeyDown(int iKeyCode);
+	virtual void drawStringOnTop();
 private:
 	GameEngine* m_pEngine;
 };
