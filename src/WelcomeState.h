@@ -7,10 +7,12 @@ class WelcomeState :
 {
 public:
 	WelcomeState(GameEngine* pEngine);
+	WelcomeState(GameEngine* pEngine, int iLastScore);
 	~WelcomeState();
 	void setBackground();
 	void initObjects();
 private:
 	GameEngine* m_pEngine;
+	int m_iLastScore = 0;
 };
 

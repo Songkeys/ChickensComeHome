@@ -127,9 +127,9 @@ void StartState::drawStringOnTop()
 	m_pEngine->drawForegroundString(10, 260, std::to_string(m_iScore).c_str(), 0x004444, 0);
 }
 
-void switchToWelcome(GameEngine* pEngine)
+void switchToWelcome(GameEngine* pEngine, int iScore)
 {
-	State* pState = new WelcomeState(pEngine);
+	State* pState = new WelcomeState(pEngine, iScore);
 	pEngine->setState(pState);
 	pState->setBackground();
 	pState->initObjects();
@@ -143,7 +143,8 @@ void StartState::die()
 	m_pEngine->redrawDisplay();
 	if (m_iRemainingChickenCount == 0) // lose
 	{
-		switchToWelcome(m_pEngine);
+		m_iScore = -1;
+		switchToWelcome(m_pEngine, m_iScore);
 	}
 }
 
@@ -153,7 +154,7 @@ void StartState::getHome()
 	m_pEngine->redrawDisplay();
 	if (m_iRemainingChickenCount == 0) // win
 	{
-		switchToWelcome(m_pEngine);
+		switchToWelcome(m_pEngine, m_iScore);
 	}
 }
 
@@ -167,6 +168,10 @@ void switchToPause(GameEngine* pEngine)
 void StartState::loseScore(int iScore)
 {
 	m_iScore -= iScore;
+	if (iScore < 0)
+	{
+		switchToWelcome(m_pEngine, m_iScore);
+	}
 }
 
 void StartState::onKeyDown(int iKeyCode)

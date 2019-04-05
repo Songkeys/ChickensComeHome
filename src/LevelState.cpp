@@ -18,6 +18,8 @@ LevelState::~LevelState()
 void LevelState::setBackground()
 {
 	m_pEngine->fillBackground(0x0000ff);
+	SimpleImage bg = ImageManager::loadImage("resources/images/bg.jpg", true).resizeTo(800, 600);
+	bg.renderImage(m_pEngine->getBackgroundSurface(), 0, 0, 0, 0, 800, 600);
 	m_pEngine->drawBackgroundString(50, 100, "Input a level name. Press Enter to confirm.", 0xffffff);
 	m_pEngine->redrawDisplay();
 }
@@ -68,7 +70,7 @@ void LevelState::onKeyDown(int iKeyCode)
 		}
 		else // error
 		{
-			m_pEngine->drawBackgroundString(50, 400, "Cannot find this level file :(", 0xff4400);
+			m_pEngine->drawBackgroundString(50, 400, "Cannot find this level file :(", 0xff0000);
 			m_pEngine->redrawDisplay();
 		}
 	}
