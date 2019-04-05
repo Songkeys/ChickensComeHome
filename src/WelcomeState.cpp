@@ -18,7 +18,8 @@ WelcomeState::~WelcomeState()
 void WelcomeState::setBackground()
 {
 	m_pEngine->fillBackground(0x0000ff);
-	// image
+	SimpleImage bg = ImageManager::loadImage("resources/images/bg.jpg", true).resizeTo(800, 600);
+	bg.renderImage(m_pEngine->getBackgroundSurface(), 0, 0, 0, 0, 800, 600);
 }
 
 void switchToStart(GameEngine* pEngine)

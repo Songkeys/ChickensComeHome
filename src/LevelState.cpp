@@ -2,6 +2,7 @@
 #include "LevelState.h"
 #include "GameEngine.h"
 #include "StartState.h"
+#include "WelcomeState.h"
 #include <fstream>
 
 LevelState::LevelState(GameEngine* pEngine)
@@ -35,6 +36,17 @@ void LevelState::initObjects()
 
 void LevelState::onKeyDown(int iKeyCode)
 {
+	/* // bug: not redraw background
+	if (iKeyCode == SDLK_ESCAPE)
+	{
+		State* pState = new WelcomeState(m_pEngine);
+		m_pEngine->setState(pState);
+		pState->setBackground();
+		pState->initObjects();
+		return;
+	}
+	*/
+
 	setBackground();
 	if (iKeyCode == SDLK_BACKSPACE) // delete
 	{
