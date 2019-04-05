@@ -25,6 +25,7 @@ void switchToStart(GameEngine* pEngine)
 {
 	State* pState = new StartState(pEngine);
 	pEngine->setState(pState);
+	pState->setBackground();
 	pState->initObjects();
 };
 
@@ -32,6 +33,7 @@ void switchToLevels(GameEngine* pEngine)
 {
 	State* pState = new LevelState(pEngine);
 	pEngine->setState(pState);
+	pState->setBackground();
 	pState->initObjects();
 }
 

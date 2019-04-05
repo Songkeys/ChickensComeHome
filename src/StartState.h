@@ -14,6 +14,7 @@ public:
 	void die();
 	void getHome();
 	void drawStringOnTop() override;
+	void onKeyDown(int iKeyCode);
 private:
 	GameEngine* m_pEngine;
 	std::string m_strLevelName = "1"; // filename without ".txt" extension, under resources/maps folder

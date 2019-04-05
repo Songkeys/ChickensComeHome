@@ -154,3 +154,20 @@ void StartState::getHome()
 		
 	}
 }
+
+void switchToPause(GameEngine* pEngine)
+{
+	State* pState = new WelcomeState(pEngine);
+	pEngine->setState(pState);
+	pState->initObjects();
+}
+
+void StartState::onKeyDown(int iKeyCode)
+{
+	if (iKeyCode == SDLK_ESCAPE) // pauase
+	{
+		//State* pState = new PauseState(pEngine, this);
+		//pEngine->setState(pState);
+		//pState->initObjects();
+	}
+}

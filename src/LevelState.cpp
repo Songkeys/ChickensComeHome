@@ -50,8 +50,8 @@ void LevelState::onKeyDown(int iKeyCode)
 		if (std::ifstream("resources/maps/" + m_strLevelName + ".txt")) // exists
 		{
 			State* pState = new StartState(m_pEngine, m_strLevelName);
-			//State* pState = new WelcomeState(m_pEngine);
 			m_pEngine->setState(pState);
+			pState->setBackground();
 			pState->initObjects();
 		}
 		else // error

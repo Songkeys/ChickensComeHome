@@ -35,7 +35,6 @@ void GameEngine::virtKeyDown(int iKeyCode)
 void GameEngine::setState(State* pState)
 {
 	m_pState = pState;
-	virtSetupBackgroundBuffer();
 }
 
 void GameEngine::virtDrawStringsOnTop()
